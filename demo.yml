@@ -1,0 +1,128 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    initialSize: 10
+    maxActive: 25
+    maxIdle: 20
+    minIdle: 10
+    testOnBorrow: true
+    validationQuery: SELECT 1
+  application:
+    name: wk-plw-admin-marketing
+    
+server.port: 8085
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.16.1.215:9998/
+  server:
+    enableSelfPreservation: false
+      
+---
+
+spring:
+  profiles: dev
+  datasource:
+    url: "jdbc:mysql://192.168.3.143:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+    username: "root"
+    password: "root"
+custom:
+  datasource:
+    names: read,write
+    read:
+      url: "jdbc:mysql://192.168.3.143:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+      username: "root"
+      password: "root"
+      driver-class-name: com.mysql.jdbc.Driver
+    write:
+      url: "jdbc:mysql://192.168.3.143:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+      username: "root"
+      password: "root"
+      driver-class-name: com.mysql.jdbc.Driver
+config:
+  ipStr: "http://adminmarketing.99114.cn"
+  adminLoginUrl: "http://cas.99114.cn/login"
+  casServerUrlPrefix: "http://cas.99114.cn"
+
+
+---
+
+spring:
+  profiles: test
+  datasource:
+    url: "jdbc:mysql://172.16.0.34:3306/wk_sys?useUnicode=true&characterEncoding=utf8&autoReconnect=true"
+    username: "wk_sys"
+    password: "@wk@sys"
+custom:
+  datasource:
+    names: read,write
+    read:
+      url: "jdbc:mysql://172.16.0.34:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+      username: "wk_sys"
+      password: "@wk@sys"
+      driver-class-name: com.mysql.jdbc.Driver
+    write:
+      url: "jdbc:mysql://172.16.0.34:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+      username: "wk_sys"
+      password: "@wk@sys"
+      driver-class-name: com.mysql.jdbc.Driver
+config:
+  ipStr: "http://adminmarketing.99114.cn"
+  adminLoginUrl: "http://cas.99114.cn/login"
+  casServerUrlPrefix: "http://cas.99114.cn"
+
+---
+
+spring:
+  profiles: online
+  datasource:
+    url: "jdbc:mysql://192.168.6.73:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+    username: "wk_sys"
+    password: "@wk@sys"
+custom:
+  datasource:
+    names: read,write
+    read:
+      url: "jdbc:mysql://192.168.6.146:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+      username: "wk_sys"
+      password: "@wk@sys"
+      driver-class-name: com.mysql.jdbc.Driver
+    write:
+      url: "jdbc:mysql://192.168.6.73:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+      username: "wk_sys"
+      password: "@wk@sys"
+      driver-class-name: com.mysql.jdbc.Driver
+config:
+  ipStr: "http://adminmarketing.99114.com"
+  adminLoginUrl: "http://cas.99114.com/login"
+  casServerUrlPrefix: "http://cas.99114.com"
+
+---
+
+spring:
+  profiles: default
+  datasource:
+    url: "jdbc:mysql://192.168.3.143:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+    username: "root"
+    password: "root"
+custom:
+  datasource:
+    names: read,write
+    read:
+      url: "jdbc:mysql://192.168.3.143:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+      username: "root"
+      password: "root"
+      driver-class-name: com.mysql.jdbc.Driver
+    write:
+      url: "jdbc:mysql://192.168.3.143:3306/wk_sys?useUnicode=true&characterEncoding=utf-8&autoReconnect=true"
+      username: "root"
+      password: "root"
+      driver-class-name: com.mysql.jdbc.Driver
+config:
+  ipStr: "http://adminmarketing.99114.cn"
+  adminLoginUrl: "http://cas.99114.cn/login"
+  casServerUrlPrefix: "http://cas.99114.cn"
